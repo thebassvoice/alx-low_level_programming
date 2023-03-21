@@ -2,7 +2,7 @@
 /**
  * _abs - Computes integer value
  *
- * @int: Parameter
+ * @j: Parameter i don't know
  * Return: always 0
  */
 int _abs(int j)
