@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _isupper - Checks for characters
  *@c: Character to be checked
@@ -7,8 +8,12 @@
 int _isupper(int c)
 {
 
-	if (c >= 'A' && c <= 'z')
+	if (c >= 65 && c <= 90)
+	{
 		return (1);
+	}
 	else
+	{
 		return (0);
+	}
 }
