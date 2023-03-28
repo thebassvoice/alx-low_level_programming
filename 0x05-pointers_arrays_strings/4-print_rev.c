@@ -7,24 +7,15 @@
  */
 void print_rev(char *s)
 {
-	int count = 0, i, j;
-	char *str, temp;
+	int j = 0;
 
-	while (count >= 0)
+	while (s[j] != '\0')
 	{
-		if (s[count] == '\0')
-			break;
-		count++;
+		j++;
 	}
-	str = s;
-
-	for (i = 0; i < (count - 1); i++)
+	for (j -= 1;  j >= 0; j--)
 	{
-		for (j = i + 1; j > 0; j--)
-		{
-			temp = *(str + j);
-			*(str + j) = *(str + (j - 1));
-			*(str + (j - 1)) = temp;
-		}
+		_putchar(s[j]);
 	}
+	_putchar('\n');
 }
