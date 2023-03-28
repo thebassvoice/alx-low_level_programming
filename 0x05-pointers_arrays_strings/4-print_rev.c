@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_rev - print in reverse
  * @s: character to be printed
@@ -6,12 +7,24 @@
  */
 void print_rev(char *s)
 {
-	int e;
-	int count = 0;
+	int count = 0, i, j;
+	char *str, temp;
 
-	for (e = 0 ; s[e] != '\0' ; e++)
+	while (count >= 0)
+	{
+		if (s[count] == '\0')
+			break;
 		count++;
-	for (e = count ; e >= 0 ; e--)
-		_putchar(s[e]);
-	_putchar('\n');
+	}
+	str = s;
+
+	for (i = 0; i < (count - 1); i++)
+	{
+		for (j = i + 1; j > 0; j--)
+		{
+			temp = *(str + j);
+			*(str + j) = *(str + (j - 1));
+			*(str + (j - 1)) = temp;
+		}
+	}
 }
