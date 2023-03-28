@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * puts2 - increament
  * @str: parameter
@@ -6,12 +7,17 @@
  */
 void puts2(char *str)
 {
-	int e;
+	int count = 0;
 
-	for (e = 0 ; str[e] != '\0' ; e++)
+	while (count >= 0)
 	{
-		_putchar(str[e]);
-		e++;
+		if (str[count] == '\0')
+		{
+			_putchar('\n');
+			break;
+		}
+		if (count % 2 == 0)
+			_putchar(str[count]);
+		count++;
 	}
-	_putchar('\n');
 }
