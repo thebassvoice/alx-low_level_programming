@@ -3,16 +3,16 @@
 /**
  * print_rev - print in reverse
  * @s: character to be printed
- * Return: void
+ * Return: always 0
  */
 void print_rev(char *s)
 {
-	int emeldah;
+	int e;
 	int count = 0;
 
-	for (emeldah = 0 ; s[emeldah] != '\0' ; emeldah++)
+	for (e = 0 ; s[e] != '\0' ; e++)
 		count++;
-	for (emeldah = count ; emeldah >= 0 ; emeldah--)
-		_putchar(s[emeldah]);
+	for (e = count ; e >= 0 ; e--)
+		_putchar(s[e]);
 	_putchar('\n');
 }
