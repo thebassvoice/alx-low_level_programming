@@ -7,7 +7,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	int josh= 0;
+	int josh = 0;
 
 	for (; s[josh] >= '\0'; josh++)
 	{
