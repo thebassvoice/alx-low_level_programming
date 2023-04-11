@@ -8,7 +8,7 @@
  * Return: always 0
  */
 
-char *_strdup(char *str)		
+char *_strdup(char *str)
 {
 	char *arr;
 	int iin, j = 0;
@@ -25,4 +25,3 @@ char *_strdup(char *str)
 		arr[j] = str[j];
 	return (arr);
 }
-
