@@ -6,7 +6,7 @@
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: Always 0 
+ * Return: Always 0
  */
 int main(int argc __attribute__((unused)), char *argv[])
 {
