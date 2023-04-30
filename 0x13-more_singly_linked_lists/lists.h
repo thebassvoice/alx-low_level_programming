@@ -4,7 +4,7 @@
 #include <stdio.h>
 /**
  * struct listint_s - lists function
- * @num: int
+ * @n: int
  * @next: node pointer
  */
 typedef struct listint_s
