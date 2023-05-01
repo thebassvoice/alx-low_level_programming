@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * insert_nodeint_at_index - main function 
+ * insert_nodeint_at_index - main function
  * @head: pointer to a pointer
  * @idx: unsigned int argument
  * @n: integer parameter
