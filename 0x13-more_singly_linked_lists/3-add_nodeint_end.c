@@ -12,12 +12,9 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	listint_t *ptr;
 
 	(void)ptr;
-
 	latest = malloc(sizeof(listint_t));
-
 	if (latest == NULL)
 		return (NULL);
-
 	latest->n = n;
 	latest->next = NULL;
 	ptr = *head;
@@ -33,6 +30,5 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 		}
 		ptr->next = latest;
 	}
-
 	return (*head);
 }
