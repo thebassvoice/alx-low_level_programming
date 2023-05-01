@@ -9,26 +9,26 @@
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *latest;
-	listint_t *ptr;
+	listint_t *temp;
 
-	(void)ptr;
+	(void)temp;
 	latest = malloc(sizeof(listint_t));
 	if (latest == NULL)
 		return (NULL);
 	latest->n = n;
 	latest->next = NULL;
-	ptr = *head;
+	temp = *head;
 	if (*head == NULL)
 	{
 		*head = latest;
 	}
 	else
 	{
-		while (ptr->next != NULL)
+		while (temp->next != NULL)
 		{
-			ptr = ptr->next;
+			temp = temp->next;
 		}
-		ptr->next = latest;
+		temp->next = latest;
 	}
 	return (*head);
 }
