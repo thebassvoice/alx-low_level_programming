@@ -12,7 +12,6 @@ listint_t *find_listint_loop(listint_t *head)
 
 	if (!head)
 		return (NULL);
-
 	while (other && theOther && theOther->next)
 	{
 		theOther = theOther->next->next;
