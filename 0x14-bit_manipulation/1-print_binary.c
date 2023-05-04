@@ -1,5 +1,5 @@
 #include "main.h"
-#include <unstdio.h>
+#include <unistd.h>
 #include <stdio.h>
 /**
  * print_binary - main function
@@ -19,12 +19,12 @@ void print_binary(unsigned long int n)
 		latest = n >> bin;
 		if (latest & 1)
 		{
-			_putchar('1');
+			putchar('1');
 			j++;
 		}
 		else if (j)
-			_putchar('0');
+			putchar('0');
 	}
 	if (!j)
-		_putchar('0');
+		putchar('0');
 }
