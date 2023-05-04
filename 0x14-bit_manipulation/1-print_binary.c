@@ -1,4 +1,6 @@
 #include "main.h"
+#include <unstdio.h>
+#include <stdio.h>
 /**
  * print_binary - main function
  * @n: parameter
