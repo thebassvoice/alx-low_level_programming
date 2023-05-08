@@ -1,45 +1,85 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#define BUFFER_SIZE 1024
+void close_file(int shut);
+char *make_buffer(char *create);
 /**
- * main - main function
+ * make_buffer - buff function
+ * @create: parameter
+ *
+ * Return: Pointer to the created buffer
+ */
+char *make_buffer(char *create)
+{
+	char *new;
+
+	new = malloc(sizeof(char) * 1024);
+
+	if (new == NULL)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", create);
+		exit(99);
+	}
+	return (new);
+}
+/**
+ * close_file - function
+ * @shut: parameter
+ */
+void close_file(int shut)
+{
+	int em = close(shut);
+
+	if (em == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", shut);
+		exit(100);
+	}
+}
+/**
+ * main - Main function of the program
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: 0 or 1 on
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
-	FILE *destination, *source;
-	char buf[BUFSIZE];
-	size_t readB, writtenB;
+	int start, end, readf, writef;
+	char *buf;
 
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: %s <source> <destination\n", argv[0]);
-		exit(1);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
-	source = fopen(argv[1], "readb");
-	if (source == NULL)
-	{
-		fprintf(stderr, "Error: Cannot open file '%s'\n", argv[1]);
-		exit(2);
-	}
-	destination = fopen(argv[2], "wwrittenb");
-	if (destination == NULL)
-	{
-		exit(2);
-	}
-	while ((readB = fread(buf, 1, BUFSIZE, source)))
-	{
-		writtenB = fwrite(buf, 1, readB, destination);
-		if (writtenB != readB)
+	buf = create_buf(argv[2]);
+	start = open(argv[1], O_RDONLY);
+	readf = read(start, buf, 1024);
+	end = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	do {
+		if (start == -1 || r == -1)
 		{
-			fprintf(stderr, "Error: Cannot write to file '%s'\n", argv[2]);
-			exit(2);
+			dprintf(STDERR_FILENO,
+				"Error: Can't read from file %s\n", argv[1]);
+			free(buf);
+			exit(98);
 		}
-	}
-	fclose(source);
-	fclose(destination);
+		writef = write(end, buf, readf);
+		if (end == -1 || writef == -1)
+		{
+			dprintf(STDERR_FILENO,
+				"Error: Can't write to %s\n", argv[2]);
+			free(buf);
+			exit(99);
+		}
+		readf = read(start, buf, 1024);
+		end = open(argv[2], O_WRONLY | O_APPEND);
+	} while (readf > 0);
+	free(buf);
+	close_file(start);
+	close_file(end);
 	return (0);
 }
