@@ -54,13 +54,13 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buf = create_buf(argv[2]);
+	buf = make_buffer(argv[2]);
 	start = open(argv[1], O_RDONLY);
 	readf = read(start, buf, 1024);
 	end = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (start == -1 || r == -1)
+		if (start == -1 || readf == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
