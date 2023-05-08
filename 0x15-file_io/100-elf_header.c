@@ -10,6 +10,7 @@
  * @c: pointer
  *
  * Return: nothing
+ * Description: prints address
  */
 void print_address(char *c)
 {
@@ -46,7 +47,7 @@ void print_address(char *c)
 	printf("\n");
 }
 /**
- * print_type - function that prints type
+ * prints_type - function that prints type
  * @d: pointer
  *
  * Return: nothing
@@ -72,73 +73,6 @@ void prints_type(char *d)
 		printf("CORE (Core file)\n");
 	else
 		printf("<unknown: %x>\n", tpe);
-}
-/**
- * print_more - print function
- * @e: pointer
- *
- * Return: nothing
- */
-void print_more(char *e)
-{
-	char more = e[7];
-
-	printf("  More:                            ");
-	if (more == 0)
-		printf("UNIX - System V\n");
-	else if (more == 2)
-		printf("UNIX - NetBSD\n");
-	else if (more == 6)
-		printf("UNIX - Solaris\n");
-	else
-		printf("<unknown: %x>\n", more);
-	printf("  More Version:                       %d\n", e[8]);
-}
-/**
- * print_versions - function prints versions
- * @f: pointer
- *
- * Return: nothing
- */
-void print_versions(char *f)
-{
-	int versions = f[6];
-
-	printf("  Versions:                           %d", versions);
-	if (versions == EV_CURRENT)
-		printf(" (current)");
-	printf("\n");
-}
-/**
- * print_stats - data function
- * @g: pointer
- *
- * Return: nothing
- */
-void print_stats(char *g)
-{
-	char stats = g[5];
-
-	printf("  Stats:                              2's complement");
-	if (stats == 1)
-		printf(", little \n");
-	if (stats == 2)
-		printf(", big \n");
-}
-/**
- * print_emel - emel function
- * @j: pointer
- *
- * Return: nothing
- */
-void print_emel(char *j)
-{
-	int yep;
-
-	printf("  Emel:  ");
-	for (yep = 0; yep < 16; yep++)
-		printf(" %02x", j[yep]);
-	printf("\n");
 }
 /**
  * sys_version - function checks system version
